@@ -1,14 +1,12 @@
 import {useEffect, useState} from "react";
+import StarWarsService from "../../services/StarWarsService";
 
-const fetchVehicle = async (url) => {
-    const response = await fetch(url);
-    return response.json();
-}
+const fetchVehicle = new StarWarsService();
 
 const VehicleBlock = ({url}) => {
     const [vehicle, setVehicle] = useState(null);
     useEffect(() => {
-        fetchVehicle(url).then(data => setVehicle(data));
+        fetchVehicle.getData(url).then(data => setVehicle(data));
     }, [])
 
         return(

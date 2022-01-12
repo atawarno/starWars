@@ -1,15 +1,13 @@
 import React, {useEffect, useState} from "react";
+import StarWarsService from "../../services/StarWarsService";
 
-const fetchCharacter = async (url) => {
-    const response = await fetch(url);
-    return response.json();
-}
+const fetchCharacter = new StarWarsService();
 
 const CharacterBlock = ({url}) => {
 
     const [char, setChar] = useState(null);
     useEffect(() => {
-        fetchCharacter(url).then(data => setChar(data));
+        fetchCharacter.getData(url).then(data => setChar(data));
     }, [])
 
     return(

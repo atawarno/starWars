@@ -3,10 +3,6 @@ import ReactDOM from 'react-dom';
 import FilmBlock from "./components/filmBlock/FilmBlock";
 import StarWarsService from "./services/StarWarsService";
 
-// const getFilms = async () => {
-//     const response = await fetch('https://swapi.dev/api/films');
-//     return await response.json();
-// }
 const getFilms = new StarWarsService();
 
 const App = () => {
